@@ -29,7 +29,7 @@ NB_LINE = HAUTEUR // COTE
 tableau = None
 
 ##############################################
-# fonctionsblabla
+# fonctions
 
 def quadrilage():
     """Affiche un quadrilage sur le canvas."""
