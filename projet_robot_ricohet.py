@@ -80,13 +80,31 @@ def robot_bleu():
     objets.append(canvas.create_oval((x,y), (x+40, y+40),
     fill = "blue"))
 
-
+"""
 def ligne_verticale():
     global objets
     objets.append(canvas.create_line((200, 0), (200, 50), fill="black"))
     objets.append(canvas.create_line((600, 0), (600, 50), fill="black"))
     objets.append(canvas.create_line((250, 800), (250, 750), fill="black"))
     objets.append(canvas.create_line((700, 800), (700, 750), fill="black"))
+
+def ligne_verticale():
+    global objets
+    x = random.randint(50, 750, 50)
+    y = random.randint(0 , 50 + 1, 50)
+    objets.append(canvas.create_line((x, y+50), (x, y+50), fill="black"))
+    """
+def ligne_verticale():
+    global objets
+    for x in range(50, 800, 50):
+        for y in range (0, 1, 1):
+            objets.append(canvas.create_line((x, y), (x, y+50), fill="black"))
+
+def ligne_horizontale():
+    global objets
+    for x in range(0, 1, 1):
+        for y in range (50, 800, 50):
+            objets.append(canvas.create_line((x, y), (x+50, y), fill="black"))
 
 def undo():
     global objets
@@ -99,6 +117,8 @@ bouton_robot_jaune = tk.Button(racine, text="Robot Jaune", command=robot_jaune)
 bouton_robot_bleu = tk.Button(racine, text="Robot Bleu", command=robot_bleu)
 bouton_ligne_verticale = tk.Button(racine, text="Lignes verticales",
 command=ligne_verticale)
+bouton_ligne_horizontale = tk.Button(racine, text="Lignes horizontales",
+command=ligne_horizontale)
 bouton_undo = tk.Button(racine, text="Undo", command=undo)
 canvas = tk.Canvas(racine, width=LARGEUR, height=HAUTEUR, bg=COULEUR_FOND)
 quadrilage()
@@ -107,7 +127,8 @@ bouton_robot_vert.grid(column=0, row=2)
 bouton_robot_jaune.grid(column=0, row=3)
 bouton_robot_bleu.grid(column=0, row=4)
 bouton_ligne_verticale.grid(column=0, row=5)
-bouton_undo.grid(column=0, row=6)
+bouton_ligne_horizontale.grid(column=0, row=6)
+bouton_undo.grid(column=0, row=7)
 canvas.grid(column=1, row=1, columnspan=3, rowspan=20)
 
 racine.mainloop()
