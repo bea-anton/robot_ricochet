@@ -82,7 +82,7 @@ def robot_bleu():
 def ligne_verticale():
     x = random.randint(40, 700+1)
     y = random.randint(40, 700+1)
-    objets.append(canvas.create_line((250, 0), (250, 500), fill="white")
+    objets.append(canvas.create_line((250, 0), (250, 500), fill="black")
 
 def undo():
     global objets
