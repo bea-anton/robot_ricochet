@@ -87,12 +87,15 @@ def ligne_verticale():
     objets.append(canvas.create_line((600, 0), (600, 50), fill="black"))
     objets.append(canvas.create_line((250, 800), (250, 750), fill="black"))
     objets.append(canvas.create_line((700, 800), (700, 750), fill="black"))
-
+"""
 def ligne_verticale():
     global objets
-    x = random.randint(50, 750, 50)
-    y = random.randint(0 , 50 + 1, 50)
-    objets.append(canvas.create_line((x, y+50), (x, y+50), fill="black"))
+    x = random.randrange(100, 750, 50)
+    y = random.randrange(0 , 1, 50)
+    objets.append(canvas.create_line((x, y), (x, y+50), fill="black"))
+    p = random.randrange(100, 750, 50)
+    q = random.randrange(750, 800, 50)
+    objets.append(canvas.create_line((p, q), (p, q+50), fill="black"))
     """
 def ligne_verticale():
     global objets
@@ -102,7 +105,7 @@ def ligne_verticale():
     for x in range(100, 750, 50) :
         for y in range (750, 800, 1) :
             objets.append(canvas.create_line((x, y), (x, y+50), fill="black"))
-
+"""
 def ligne_horizontale():
     global objets
     for x in range(0, 1, 1):
