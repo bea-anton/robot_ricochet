@@ -125,6 +125,13 @@ def obstacle_croix():
 def carre():
     (canvas.create_rectangle((350, 350), (450, 450), fill = "black"))
 
+def cible():
+    global objets
+    x = random.randint(0, 750 + 1)
+    y = random.randint(50, 750 + 1)
+    objets.append(canvas.create_rectangle((x,y), (x+40, y+40), fill = "blue"))
+
+
 def undo():
     global objets
     canvas.delete(objets[-1:])
@@ -141,6 +148,7 @@ command=ligne_horizontale)
 bouton_obstacle_croix = tk.Button(racine, text="Obstacle croix",
 command=obstacle_croix)
 bouton_carre = tk.Button(racine, text="Carre", command=carre)
+bouton_cible = tk.Button(racine, text="Cible", command=cible)
 bouton_undo = tk.Button(racine, text="Undo", command=undo)
 canvas = tk.Canvas(racine, width=LARGEUR, height=HAUTEUR, bg=COULEUR_FOND)
 quadrilage()
@@ -152,7 +160,8 @@ bouton_ligne_verticale.grid(column=0, row=5)
 bouton_ligne_horizontale.grid(column=0, row=6)
 bouton_obstacle_croix.grid(column=0, row=7)
 bouton_carre.grid(column=0, row=8)
-bouton_undo.grid(column=0, row=9)
+bouton_cible.grid(column=0, row=9)
+bouton_undo.grid(column=0, row=20)
 canvas.grid(column=1, row=1, columnspan=3, rowspan=30)
 
 racine.mainloop()
