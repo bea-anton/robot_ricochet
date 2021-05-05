@@ -80,14 +80,7 @@ def robot_bleu():
     objets.append(canvas.create_oval((x,y), (x+40, y+40),
     fill = "blue"))
 
-"""
-def ligne_verticale():
-    global objets
-    objets.append(canvas.create_line((200, 0), (200, 50), fill="black"))
-    objets.append(canvas.create_line((600, 0), (600, 50), fill="black"))
-    objets.append(canvas.create_line((250, 800), (250, 750), fill="black"))
-    objets.append(canvas.create_line((700, 800), (700, 750), fill="black"))
-"""
+
 def ligne_verticale():
     global objets
     x = random.randrange(100, 750, 50)
@@ -96,32 +89,23 @@ def ligne_verticale():
     p = random.randrange(100, 750, 50)
     q = random.randrange(750, 800, 50)
     objets.append(canvas.create_line((p, q), (p, q+50), fill="black"))
-    """
-def ligne_verticale():
-    global objets
-    for x in range(100, 750, 50) :
-        for y in range (0, 1, 1) :
-            objets.append(canvas.create_line((x, y), (x, y+50), fill="black"))
-    for x in range(100, 750, 50) :
-        for y in range (750, 800, 1) :
-            objets.append(canvas.create_line((x, y), (x, y+50), fill="black"))
-"""
+    
+
 def ligne_horizontale():
     global objets
-    for x in range(0, 1, 1):
-        for y in range (100, 750, 50):
-            objets.append(canvas.create_line((x, y), (x+50, y), fill="black"))
-    for x in range(750, 800, 1):
-        for y in range (100, 750, 50):
-            objets.append(canvas.create_line((x, y), (x+50, y), fill="black"))
+    x = random.randrange(0, 1, 1)
+    y = random.randrange(100, 750, 50)
+    objets.append(canvas.create_line((x, y), (x+50, y), fill="black"))
+    p = random.randrange(750, 800, 50)
+    q = random.randrange(100, 750, 50)
+    objets.append(canvas.create_line((p, q), (p+50, q), fill="black"))
 
 def obstacle_croix():
     global objets
-    x = random.randint(100, 400 + 1)
-    y = random.randint(100, 400 + 1)
-    print("Croix aux coordonnées", x, y)
-    objets.append(canvas.create_line((x, y), (x+100, y+100), fill=couleur))
-    objets.append(canvas.create_line((x+100,y), (x,y+100), fill=couleur))
+    x = random.randint(100,750)
+    y = random.randint(100, 750)
+    objets.append(canvas.create_line((x, y), (x, y+50), fill="black"))
+    objets.append(canvas.create_line((x+50,y), (x,y), fill="black"))
 
 def undo():
     global objets
@@ -136,6 +120,8 @@ bouton_ligne_verticale = tk.Button(racine, text="Lignes verticales",
 command=ligne_verticale)
 bouton_ligne_horizontale = tk.Button(racine, text="Lignes horizontales",
 command=ligne_horizontale)
+bouton_obstacle_croix = tk.Button(racine, text="Obstacle croix",
+command=obstacle_croix)
 bouton_undo = tk.Button(racine, text="Undo", command=undo)
 canvas = tk.Canvas(racine, width=LARGEUR, height=HAUTEUR, bg=COULEUR_FOND)
 quadrilage()
@@ -146,6 +132,7 @@ bouton_robot_bleu.grid(column=0, row=4)
 bouton_ligne_verticale.grid(column=0, row=5)
 bouton_ligne_horizontale.grid(column=0, row=6)
 bouton_undo.grid(column=0, row=7)
+bouton_obstacle_croix.grid(column=0, row=8)
 canvas.grid(column=1, row=1, columnspan=3, rowspan=20)
 
 racine.mainloop()
