@@ -99,15 +99,26 @@ def ligne_verticale():
     for x in range(100, 750, 50) :
         for y in range (0, 1, 1) :
             objets.append(canvas.create_line((x, y), (x, y+50), fill="black"))
+    for x in range(100, 750, 50) :
+        for y in range (750, 800, 1) :
+            objets.append(canvas.create_line((x, y), (x, y+50), fill="black"))
 
 def ligne_horizontale():
     global objets
     for x in range(0, 1, 1):
         for y in range (100, 750, 50):
             objets.append(canvas.create_line((x, y), (x+50, y), fill="black"))
-    for x in range(800, 801, 1):
+    for x in range(750, 800, 1):
         for y in range (100, 750, 50):
             objets.append(canvas.create_line((x, y), (x+50, y), fill="black"))
+
+def obstacle_croix():
+    global objets
+    x = random.randint(100, 400 + 1)
+    y = random.randint(100, 400 + 1)
+    print("Croix aux coordonnées", x, y)
+    objets.append(canvas.create_line((x, y), (x+100, y+100), fill=couleur))
+    objets.append(canvas.create_line((x+100,y), (x,y+100), fill=couleur))
 
 def undo():
     global objets
