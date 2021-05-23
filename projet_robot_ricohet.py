@@ -11,10 +11,10 @@
 ##############################################
 # import des librairies
 
-import tkinter as tk
-import random
+import   tkinter as  tk
+import copy
+racine = tk.Tk ()
 
-racine = tk.Tk()
 racine.title("Robot Ricochet")
 
 #############################################
